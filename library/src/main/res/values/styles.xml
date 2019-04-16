@@ -1,0 +1,37 @@
+<resources>
+    <style name="BasePopTranslateLeftAnim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/base_pop_left_to_right_anim</item>
+        <item name="android:windowExitAnimation">@anim/base_pop_right_to_left_anim</item>
+    </style>
+    <style name="BasePopTranslateRightAnim" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/base_pop_right_to_left_anim_new</item>
+        <item name="android:windowExitAnimation">@anim/base_pop_left_to_right_anim_new</item>
+
+    </style>
+    <style name="BasePopTranslateTopAnim" parent="android:Animation">
+        <item name="android:windowExitAnimation">@anim/base_pop_top_to_bottom_anim</item>
+        <item name="android:windowEnterAnimation">@anim/base_pop_bottom_to_top_anim</item>
+    </style>
+
+    <style name="BasePopTranslateBottomAnim" parent="android:Animation">
+        <item name="android:windowExitAnimation">@anim/base_pop_bottom_to_top_anim_new</item>
+        <item name="android:windowEnterAnimation">@anim/base_pop_top_to_bottom_anim_new</item>
+    </style>
+
+    <style name="BasePopScaleRightTopAnim" parent="android:Animation">
+        <item name="android:windowExitAnimation">@anim/base_pop_scale_exit_from_right_top_point_anim</item>
+        <item name="android:windowEnterAnimation">@anim/base_pop_scale_entry_from_right_top_point_anim</item>
+    </style>
+    <style name="BasePopScaleLeftTopAnim" parent="android:Animation">
+        <item name="android:windowExitAnimation">@anim/base_pop_scale_exit_from_left_top_point_anim</item>
+        <item name="android:windowEnterAnimation">@anim/base_pop_scale_entry_from_left_top_point_anim</item>
+    </style>
+    <style name="BasePopScaleLeftBottomAnim" parent="android:Animation">
+        <item name="android:windowExitAnimation">@anim/base_pop_scale_exit_from_left_bottom_point_anim</item>
+        <item name="android:windowEnterAnimation">@anim/base_pop_scale_entry_from_left_bottom_point_anim</item>
+    </style>
+    <style name="BasePopScaleRightBottomAnim" parent="android:Animation">
+        <item name="android:windowExitAnimation">@anim/base_pop_scale_exit_from_right_bottom_point_anim</item>
+        <item name="android:windowEnterAnimation">@anim/base_pop_scale_entry_from_right_bottom_point_anim</item>
+    </style>
+</resources>
