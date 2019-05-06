@@ -17,7 +17,7 @@ public class BasePop extends PopupWindow implements PopupWindow.OnDismissListene
     private PopConfig mConfig;
 
     public BasePop(View contentView, PopConfig config, OnInitViewListener listener) {
-        super(contentView, config.getWidth(), config.getHeight(), true);
+        super(contentView, config.getWidth(), config.getHeight(), false);
         mConfig = config;
         setOutsideTouchable(config.ismIsClickOtherDismiss());//设置外部是否可以触摸
         mListener = listener;
@@ -29,15 +29,6 @@ public class BasePop extends PopupWindow implements PopupWindow.OnDismissListene
             setAnimationStyle(mConfig.getStyle());
         }
         setBackgroundDrawable(new BitmapDrawable());
-        /*
-         * 触摸拦截
-         * */
-        setTouchInterceptor(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                return !mConfig.ismIsClickOtherDismiss();
-            }
-        });
         if (mListener != null) {
             mListener.onInitView(getContentView());
         }

@@ -8,8 +8,8 @@ public class PopConfig {
     private boolean mIsClickOtherDismiss=false;//是否触摸外部取消popupwindow
     private int mX ;//x轴偏移量
     private int mY ;//y轴偏移量
-    private int mWidth= ViewGroup.LayoutParams.MATCH_PARENT;//pop宽高
-    private int mHeight= ViewGroup.LayoutParams.MATCH_PARENT;//pop宽高
+    private int mWidth= ViewGroup.LayoutParams.WRAP_CONTENT;//pop宽高
+    private int mHeight= ViewGroup.LayoutParams.WRAP_CONTENT;//pop宽高
     public static int ANIM_TRANSLATE_BOTTOM_TO_TOP = R.style.BasePopTranslateTopAnim;//从下往上平移进入动画
     public static int ANIM_TRANSLATE_TOP_TO_BOTTOM = R.style.BasePopTranslateBottomAnim;//从上往下平移进入动画
     public static int ANIM_TRANSLATE_RIGHT_TO_LEFT = R.style.BasePopTranslateLeftAnim;//从右往左平移进入动画
