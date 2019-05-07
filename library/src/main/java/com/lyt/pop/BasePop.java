@@ -38,7 +38,7 @@ public class BasePop extends PopupWindow implements PopupWindow.OnDismissListene
         if (mConfig.ismIsBgDarken()) {
             startDarken();
         }
-        showAtLocation(getContentView(), Gravity.CENTER, mConfig.getX(), mConfig.getY());
+        showAtLocation(getContentView(), mConfig.getGravity(), mConfig.getX(), mConfig.getY());
     }
 
     @Override

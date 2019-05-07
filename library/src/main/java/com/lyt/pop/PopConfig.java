@@ -1,5 +1,6 @@
 package com.lyt.pop;
 
+import android.view.Gravity;
 import android.view.ViewGroup;
 
 public class PopConfig {
@@ -10,6 +11,7 @@ public class PopConfig {
     private int mY ;//y轴偏移量
     private int mWidth= ViewGroup.LayoutParams.WRAP_CONTENT;//pop宽高
     private int mHeight= ViewGroup.LayoutParams.WRAP_CONTENT;//pop宽高
+    private int gravity = Gravity.CENTER;
     public static int ANIM_TRANSLATE_BOTTOM_TO_TOP = R.style.BasePopTranslateTopAnim;//从下往上平移进入动画
     public static int ANIM_TRANSLATE_TOP_TO_BOTTOM = R.style.BasePopTranslateBottomAnim;//从上往下平移进入动画
     public static int ANIM_TRANSLATE_RIGHT_TO_LEFT = R.style.BasePopTranslateLeftAnim;//从右往左平移进入动画
@@ -49,6 +51,10 @@ public class PopConfig {
         this.mWidth = width;
         return this;
     }
+    public PopConfig setGravity(int gravity){
+        this.gravity = gravity;
+        return this;
+    }
     public PopConfig setHeight(int height){
         this.mHeight = height;
         return this;
@@ -83,5 +89,8 @@ public class PopConfig {
 
     public int getHeight() {
         return mHeight;
+    }
+    public int getGravity(){
+        return gravity;
     }
 }
