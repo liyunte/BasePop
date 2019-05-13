@@ -4,11 +4,14 @@ import android.app.Activity;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 
 
@@ -16,13 +19,15 @@ public class BasePop extends PopupWindow implements PopupWindow.OnDismissListene
     private OnInitViewListener mListener;
     private PopConfig mConfig;
 
-    public BasePop(View contentView, PopConfig config, OnInitViewListener listener) {
-        super(contentView, config.getWidth(), config.getHeight(), false);
+
+    public BasePop(final View contentView, final PopConfig config, OnInitViewListener listener) {
+        super(contentView, config.getWidth(), config.getHeight(), true);
         mConfig = config;
-        setOutsideTouchable(config.ismIsClickOtherDismiss());//设置外部是否可以触摸
         mListener = listener;
         init();
     }
+
+
 
     private void init() {
         if (mConfig.getStyle() != -1) {
@@ -40,6 +45,7 @@ public class BasePop extends PopupWindow implements PopupWindow.OnDismissListene
         }
         showAtLocation(getContentView(), mConfig.getGravity(), mConfig.getX(), mConfig.getY());
     }
+
 
     @Override
     public void showAsDropDown(View anchor) {

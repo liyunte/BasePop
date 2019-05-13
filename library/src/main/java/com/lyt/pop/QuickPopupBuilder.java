@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 public class QuickPopupBuilder {
     private LayoutInflater inflater;
@@ -54,6 +55,10 @@ public class QuickPopupBuilder {
         }
         if (mConfig==null){
             mConfig = new PopConfig();
+        }
+        if (!mConfig.ismIsClickOtherDismiss()){
+            mConfig.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
+            mConfig.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
         }
         return new BasePop(mContentView,mConfig,mListener);
     }
