@@ -4,10 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.TextView;
-
 import com.lyt.pop.BasePop;
 import com.lyt.pop.OnInitViewAdapter;
 import com.lyt.pop.PopConfig;
@@ -19,9 +16,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-    }
-    public void show(View view){
-       pop = QuickPopupBuilder.with(this)
+        pop = QuickPopupBuilder.with(this)
+                .setPopConfig(new PopConfig().setGravity(Gravity.BOTTOM|Gravity.CENTER_HORIZONTAL).setStyle(PopConfig.ANIM_TRANSLATE_BOTTOM_TO_TOP))
                 .setContentView(R.layout.pop_test)
                 .setOnInitViewListener(new OnInitViewAdapter(){
                     @Override
@@ -37,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 })
                 .build();
+    }
+    public void show(View view){
         pop.show();
 
     }

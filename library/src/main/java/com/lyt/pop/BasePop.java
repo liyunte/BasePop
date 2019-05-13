@@ -4,14 +4,9 @@ import android.app.Activity;
 import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.FrameLayout;
 import android.widget.PopupWindow;
 
 
@@ -21,12 +16,13 @@ public class BasePop extends PopupWindow implements PopupWindow.OnDismissListene
 
 
     public BasePop(final View contentView, final PopConfig config, OnInitViewListener listener) {
-        super(contentView, config.getWidth(), config.getHeight(), true);
+        super(contentView, config.getWidth(), config.getHeight(), false);
+        setFocusable(config.ismIsClickOtherDismiss());
+        setOutsideTouchable(config.ismIsClickOtherDismiss());
         mConfig = config;
         mListener = listener;
         init();
     }
-
 
 
     private void init() {
@@ -40,6 +36,9 @@ public class BasePop extends PopupWindow implements PopupWindow.OnDismissListene
     }
 
     public void show() {
+        if (isShowing()) {
+            return;
+        }
         if (mConfig.ismIsBgDarken()) {
             startDarken();
         }
@@ -49,6 +48,9 @@ public class BasePop extends PopupWindow implements PopupWindow.OnDismissListene
 
     @Override
     public void showAsDropDown(View anchor) {
+        if (isShowing()) {
+            return;
+        }
         if (mConfig.ismIsBgDarken()) {
             startDarken();
         }
@@ -94,6 +96,9 @@ public class BasePop extends PopupWindow implements PopupWindow.OnDismissListene
      */
     @Override
     public void dismiss() {
+        if (!isShowing()) {
+            return;
+        }
         if (mConfig.ismIsBgDarken()) {
             stopDarken();
         }
@@ -113,7 +118,7 @@ public class BasePop extends PopupWindow implements PopupWindow.OnDismissListene
     /**
      * 当activity或fragment处于onStop状态时，应调用此方法
      */
-    public void onStop(){
+    public void onStop() {
         if (isShowing()) {
             dismiss();
         }

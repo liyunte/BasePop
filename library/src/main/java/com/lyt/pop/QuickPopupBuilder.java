@@ -56,10 +56,7 @@ public class QuickPopupBuilder {
         if (mConfig==null){
             mConfig = new PopConfig();
         }
-        if (!mConfig.ismIsClickOtherDismiss()){
-            mConfig.setHeight(ViewGroup.LayoutParams.MATCH_PARENT);
-            mConfig.setWidth(ViewGroup.LayoutParams.MATCH_PARENT);
-        }
+
         return new BasePop(mContentView,mConfig,mListener);
     }
 
